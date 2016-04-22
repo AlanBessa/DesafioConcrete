@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\TelefoneAdapter.cs" />
     <Compile Include="Adapters\UsuarioAdapter.cs" />
     <Compile Include="BaseApp.cs" />
+    <Compile Include="Command\TelefoneCommands\TelefoneCommand.cs" />
     <Compile Include="Command\UsuarioCommands\LoginCommand.cs" />
     <Compile Include="Command\UsuarioCommands\UsuarioCommand.cs" />
     <Compile Include="Interfaces\IUsuarioApp.cs" />

@@ -124,7 +124,7 @@
     <value>E-mail em formato inválido.</value>
   </data>
   <data name="EmailObrigatorio" xml:space="preserve">
-    <value>O e-mail obrigatória.</value>
+    <value>O e-mail é obrigatório.</value>
   </data>
   <data name="EmailTamanhoIncorreto" xml:space="preserve">
     <value>E-mail em tamanho incorreto.</value>
@@ -143,5 +143,23 @@
   </data>
   <data name="UsuarioSenhaInvalido" xml:space="preserve">
     <value>Usuário ou senha inválidos.</value>
+  </data>
+  <data name="DDDObrigatorio" xml:space="preserve">
+    <value>DDD é obrigatório.</value>
+  </data>
+  <data name="DDDTamanhoInvalido" xml:space="preserve">
+    <value>DDD em tamanho incorreto.</value>
+  </data>
+  <data name="NumeroObrigatorio" xml:space="preserve">
+    <value>Número é obrigatório.</value>
+  </data>
+  <data name="NumeroTamanhoInvalido" xml:space="preserve">
+    <value>Número em tamanho incorreto.</value>
+  </data>
+  <data name="SomenteNumero" xml:space="preserve">
+    <value>Somente números.</value>
+  </data>
+  <data name="EmailJaExiste" xml:space="preserve">
+    <value>E-mail já existente.</value>
   </data>
 </root>

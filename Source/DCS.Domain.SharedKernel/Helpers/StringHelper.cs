@@ -18,5 +18,17 @@ namespace DCS.Domain.SharedKernel.Helpers
                 sbString.Append(data[i].ToString("x2"));
             return sbString.ToString();
         }
+
+        public static string RemoverCaracterEspecial(string texto)
+        {
+            if (texto == null) return string.Empty;
+
+            const string caracteresEspeciais = "()-[]{}+=_*%$#@/\\|~^´`";
+
+            for (var i = 0; i < caracteresEspeciais.Length; i++)
+                texto = texto.Replace(caracteresEspeciais[i].ToString(), string.Empty);
+
+            return texto;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DCS.Application.App.Command.UsuarioCommands;
+﻿using DCS.Application.App.Command.TelefoneCommands;
+using DCS.Application.App.Command.UsuarioCommands;
 using DCS.Application.App.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,8 @@ namespace DCS.Presetantion.API.Controllers
             var command = new UsuarioCommand(
                 nome: (string)body.nome,
                 email: (string)body.email,
-                senha: (string)body.senha
+                senha: (string)body.senha,
+                telefones: body.telefones.ToObject<List<TelefoneCommand>>()
             );
 
             var usuario = _usuarioApp.Registrar(command);

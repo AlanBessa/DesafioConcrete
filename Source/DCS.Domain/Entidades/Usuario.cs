@@ -3,6 +3,7 @@ using DCS.Domain.SharedKernel.Helpers;
 using DCS.Domain.SharedKernel.ValueObjects;
 using DomainValidation.Validation;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace DCS.Domain.Entidades
@@ -16,20 +17,28 @@ namespace DCS.Domain.Entidades
 
         #endregion
 
+        #region "Atributos"
+
+        private IList<Telefone> _telefones;
+
+        #endregion
+
         protected Usuario()
         {
         }
 
-        public Usuario(string nome, string email, string senha, Guid? IdUsuario = null)
+        public Usuario(string nome, string email, string senha, IList<Telefone> telefones, Guid? idUsuario)
         {
             Nome = nome;
             DefinirEmail(email);
-            IdUsuario = IdUsuario == null ? Guid.NewGuid() : IdUsuario;
+            IdUsuario = idUsuario == null ? Guid.NewGuid() : idUsuario.Value;
             ListaDeTelefones = new List<Telefone>();
             DataDeCriacao = DateTime.Now;
             DataAtualizacao = null;
             DataDoUltimoLogin = null;
             DefinirSenha(senha);
+            _telefones = new List<Telefone>();
+            telefones.ToList().ForEach(x => AdicionarTelefone(x));
         }
 
         #region "Propriedades"
@@ -48,7 +57,11 @@ namespace DCS.Domain.Entidades
 
         public DateTime? DataDoUltimoLogin { get; private set; }
         
-        public ICollection<Telefone> ListaDeTelefones { get; set; }
+        public ICollection<Telefone> ListaDeTelefones
+        {
+            get { return _telefones; }
+            private set { _telefones = new List<Telefone>(value); }
+        }
                 
         public ValidationResult ValidationResult { get; set; }
 
@@ -64,7 +77,7 @@ namespace DCS.Domain.Entidades
                 Email = objEmail;
         }
 
-        public void DefinirSenha(string senha)
+        private void DefinirSenha(string senha)
         {
             if (this.DefinirSenhaUsuarioScopeEhValido(senha))
                 Senha = StringHelper.Criptografar(senha);
@@ -74,6 +87,11 @@ namespace DCS.Domain.Entidades
         {
             if (this.AutenticarUsuarioScopeEhValido(email, senha))
                 return;
+        }
+
+        public void AdicionarTelefone(Telefone telefone)
+        {
+            _telefones.Add(telefone);
         }
 
         #endregion

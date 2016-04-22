@@ -22,15 +22,13 @@ namespace DCS.Application.App
             _usuarioService = usuarioService;
         }
 
-        public UsuarioCommand Registrar(UsuarioCommand usuario)
-        {
-            if (!_notifications.HasNotifications())
-            {
-                _usuarioService.Adicionar(UsuarioAdapter.ToDomainModel(usuario));
-                Commit();
-            }
+        public UsuarioCommand Registrar(UsuarioCommand usuarioCommand)
+        {            
+            var usuario = _usuarioService.Adicionar(UsuarioAdapter.ToDomainModel(usuarioCommand));
+            if(Commit())
+                return UsuarioAdapter.ToModelDomain(usuario);
 
-            return usuario;
+            return null;           
         }
 
         public UsuarioCommand Autenticar(string email, string senha)

@@ -70,6 +70,24 @@ namespace DCS.Domain.SharedKernel.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DDD é obrigatório..
+        /// </summary>
+        public static string DDDObrigatorio {
+            get {
+                return ResourceManager.GetString("DDDObrigatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DDD em tamanho incorreto..
+        /// </summary>
+        public static string DDDTamanhoInvalido {
+            get {
+                return ResourceManager.GetString("DDDTamanhoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail em formato inválido..
         /// </summary>
         public static string EmailInvalido {
@@ -79,7 +97,16 @@ namespace DCS.Domain.SharedKernel.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O e-mail obrigatória..
+        ///   Looks up a localized string similar to E-mail já existente..
+        /// </summary>
+        public static string EmailJaExiste {
+            get {
+                return ResourceManager.GetString("EmailJaExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O e-mail é obrigatório..
         /// </summary>
         public static string EmailObrigatorio {
             get {
@@ -93,6 +120,24 @@ namespace DCS.Domain.SharedKernel.Resources {
         public static string EmailTamanhoIncorreto {
             get {
                 return ResourceManager.GetString("EmailTamanhoIncorreto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Número é obrigatório..
+        /// </summary>
+        public static string NumeroObrigatorio {
+            get {
+                return ResourceManager.GetString("NumeroObrigatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Número em tamanho incorreto..
+        /// </summary>
+        public static string NumeroTamanhoInvalido {
+            get {
+                return ResourceManager.GetString("NumeroTamanhoInvalido", resourceCulture);
             }
         }
         
@@ -120,6 +165,15 @@ namespace DCS.Domain.SharedKernel.Resources {
         public static string SenhaTamanhoInvalido {
             get {
                 return ResourceManager.GetString("SenhaTamanhoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Somente números..
+        /// </summary>
+        public static string SomenteNumero {
+            get {
+                return ResourceManager.GetString("SomenteNumero", resourceCulture);
             }
         }
         

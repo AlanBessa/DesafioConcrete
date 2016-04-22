@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\Repositorios\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Servicos\IUsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scopes\TelefoneScopes.cs" />
     <Compile Include="Scopes\UsuarioScopes.cs" />
     <Compile Include="Servicos\UsuarioService.cs" />
     <Compile Include="Specifications\UsuarioDevePossuirEmailUnicoSpecification.cs" />

@@ -1,5 +1,6 @@
 ﻿using DCS.Domain.Entidades;
 using DCS.Domain.Interfaces.Repositorios;
+using DCS.Domain.SharedKernel.Resources;
 using DCS.Domain.Specifications;
 using DomainValidation.Validation;
 
@@ -11,7 +12,7 @@ namespace DCS.Domain.Validations
         {
             var emailDuplicado = new UsuarioDevePossuirEmailUnicoSpecification(usuarioRepository);
             
-            base.Add("emailDuplicado", new Rule<Usuario>(emailDuplicado, "E-mail já cadastrado!"));
+            base.Add("emailDuplicado", new Rule<Usuario>(emailDuplicado, ErrorMessage.EmailJaExiste));
         }
     }
 }
