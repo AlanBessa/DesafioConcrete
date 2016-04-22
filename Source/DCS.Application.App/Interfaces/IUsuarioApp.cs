@@ -11,8 +11,8 @@ namespace DCS.Application.App.Interfaces
 
         UsuarioCommand Autenticar(string email, string senha);
 
-        Usuario ObterPorId(Guid id);
+        UsuarioCommand ObterPorId(Guid id);
 
-        IEnumerable<Usuario> ObterTodos();
+        IEnumerable<UsuarioCommand> ObterTodos();
     }
 }

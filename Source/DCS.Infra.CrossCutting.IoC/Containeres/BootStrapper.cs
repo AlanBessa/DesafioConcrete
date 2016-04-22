@@ -25,6 +25,7 @@ namespace DCS.Infra.CrossCutting.IoC.Containeres
 
             // Domain
             container.RegisterType<IUsuarioService, UsuarioService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITelefoneService, TelefoneService>(new HierarchicalLifetimeManager());
 
             // Infra Dados Repos
             container.RegisterType<IUsuarioRepository, UsuarioRepository>(new HierarchicalLifetimeManager());

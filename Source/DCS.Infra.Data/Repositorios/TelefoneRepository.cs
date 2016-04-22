@@ -1,4 +1,6 @@
-﻿using DCS.Domain.Entidades;
+﻿using System;
+using System.Collections.Generic;
+using DCS.Domain.Entidades;
 using DCS.Domain.Interfaces.Repositorios;
 using DCS.Infra.Data.Context;
 
@@ -10,6 +12,11 @@ namespace DCS.Infra.Data.Repositorios
             : base(context)
         {
             _context = context;
+        }
+
+        public IEnumerable<Telefone> ObterTelefonesPorUsuario(Guid idUsuario)
+        {
+            return Buscar(m => m.UsuarioId == idUsuario);
         }
     }
 }

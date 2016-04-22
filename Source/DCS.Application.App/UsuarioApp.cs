@@ -1,10 +1,7 @@
 ﻿using DCS.Application.App.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DCS.Domain.Entidades;
+using System.Collections.Generic;
 using DCS.Domain.Interfaces.Servicos;
 using DCS.Infra.Data.UnitOfWork.Interface;
 using DCS.Application.App.Command.UsuarioCommands;
@@ -15,17 +12,20 @@ namespace DCS.Application.App
     public class UsuarioApp : BaseApp, IUsuarioApp
     {
         private readonly IUsuarioService _usuarioService;
+        private readonly ITelefoneService _telefoneService;
 
-        public UsuarioApp(IUsuarioService usuarioService, IUnitOfWork unitOfWork)
+        public UsuarioApp(IUsuarioService usuarioService, ITelefoneService telefoneService, IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
             _usuarioService = usuarioService;
+            _telefoneService = telefoneService;
         }
 
         public UsuarioCommand Registrar(UsuarioCommand usuarioCommand)
         {            
             var usuario = _usuarioService.Adicionar(UsuarioAdapter.ToDomainModel(usuarioCommand));
-            if(Commit())
+
+            if (Commit())
                 return UsuarioAdapter.ToModelDomain(usuario);
 
             return null;           
@@ -33,15 +33,20 @@ namespace DCS.Application.App
 
         public UsuarioCommand Autenticar(string email, string senha)
         {
-            throw new NotImplementedException();
+            var usuario = _usuarioService.Autenticar(email, senha);
+
+            return UsuarioAdapter.ToModelDomain(usuario);
         }
 
-        public Usuario ObterPorId(Guid id)
+        public UsuarioCommand ObterPorId(Guid id)
         {
-            throw new NotImplementedException();
+            var usuario = _usuarioService.ObterPorId(id);
+            usuario.DefinirTelefones(_telefoneService.ObterTelefonesPorUsuario(usuario.IdUsuario).ToList());
+
+            return UsuarioAdapter.ToModelDomain(usuario);
         }
 
-        public IEnumerable<Usuario> ObterTodos()
+        public IEnumerable<UsuarioCommand> ObterTodos()
         {
             throw new NotImplementedException();
         }        

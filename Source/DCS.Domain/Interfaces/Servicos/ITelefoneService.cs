@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DCS.Domain.Interfaces.Repositorios
+namespace DCS.Domain.Interfaces.Servicos
 {
-    public interface ITelefoneRepository : IBaseRepository<Telefone>
+    public interface ITelefoneService
     {
         IEnumerable<Telefone> ObterTelefonesPorUsuario(Guid idUsuario);
     }

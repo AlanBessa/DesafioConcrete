@@ -37,8 +37,7 @@ namespace DCS.Domain.Entidades
             DataAtualizacao = null;
             DataDoUltimoLogin = null;
             DefinirSenha(senha);
-            _telefones = new List<Telefone>();
-            telefones.ToList().ForEach(x => AdicionarTelefone(x));
+            DefinirTelefones(telefones);
         }
 
         #region "Propriedades"
@@ -83,10 +82,20 @@ namespace DCS.Domain.Entidades
                 Senha = StringHelper.Criptografar(senha);
         }
 
-        public void Autenticar(string email, string senha)
+        public void DefinirTelefones(IList<Telefone> telefones)
         {
-            if (this.AutenticarUsuarioScopeEhValido(email, senha))
-                return;
+            if (telefones == null || !telefones.Any()) return;
+
+            _telefones = new List<Telefone>();
+            telefones.ToList().ForEach(x => AdicionarTelefone(x));
+        }
+
+        public bool Autenticar(string email, string senhaCriptografada)
+        {
+            if (this.AutenticarUsuarioScopeEhValido(email, senhaCriptografada))
+                return true;
+
+            return false;
         }
 
         public void AdicionarTelefone(Telefone telefone)

@@ -1,10 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DCS.Domain.Servicos;
-using DCS.Domain.Interfaces.Servicos;
-using DCS.Domain.Entidades;
 
-namespace DCS.Domain.Test
+namespace DCS.Domain.Test.Usuario
 {
     [TestClass]
     public class UnitTest1
@@ -12,7 +9,6 @@ namespace DCS.Domain.Test
         [TestMethod]
         public void TestMethod1()
         {
-            
         }
     }
 }

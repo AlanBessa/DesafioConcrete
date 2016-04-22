@@ -11,7 +11,7 @@ namespace DCS.Application.App.Command.UsuarioCommands
             Nome = nome;
             Email = email;
             Senha = senha;
-            ListaDeTelefones = telefones;
+            Telefones = telefones;
         }
 
         #region "Propriedades"
@@ -24,7 +24,7 @@ namespace DCS.Application.App.Command.UsuarioCommands
         
         public string Email { get; set; }
 
-        public IEnumerable<TelefoneCommand> ListaDeTelefones { get; set; }
+        public IEnumerable<TelefoneCommand> Telefones { get; set; }
 
         #endregion
     }

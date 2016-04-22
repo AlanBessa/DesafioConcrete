@@ -7,6 +7,7 @@ using DCS.Domain.Interfaces.Repositorios;
 using DCS.Domain.Validations;
 using DomainValidation.Validation;
 using DCS.Domain.SharedKernel.Events;
+using DCS.Domain.SharedKernel.Helpers;
 
 namespace DCS.Domain.Servicos
 {
@@ -26,10 +27,21 @@ namespace DCS.Domain.Servicos
 
             return usuario;
         }
-                
+
+        public Usuario Autenticar(string email, string senha)
+        {
+            var usuario = _usuarioRepository.ObterPorEmail(email);
+
+            if (usuario == null) return null;
+            
+            if(!usuario.Autenticar(email, StringHelper.Criptografar(senha))) return null;
+
+            return usuario;
+        }
+
         public Usuario ObterPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return _usuarioRepository.ObterPorId(id);
         }
 
         public IEnumerable<Usuario> ObterTodos()

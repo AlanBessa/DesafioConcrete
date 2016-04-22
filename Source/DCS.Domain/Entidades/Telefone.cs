@@ -34,6 +34,10 @@ namespace DCS.Domain.Entidades
 
         public string Numero { get; private set; }
 
+        public Guid? UsuarioId { get; set; }
+
+        public Usuario Usuario { get; set; }
+
         public ValidationResult ValidationResult { get; set; }
 
         #endregion

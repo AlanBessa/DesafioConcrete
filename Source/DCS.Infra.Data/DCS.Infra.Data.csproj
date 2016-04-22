@@ -73,6 +73,14 @@
     <Compile Include="Migrations\201604220307302_Initial.Designer.cs">
       <DependentUpon>201604220307302_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604221815453_v2.cs" />
+    <Compile Include="Migrations\201604221815453_v2.Designer.cs">
+      <DependentUpon>201604221815453_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604221822239_v3.cs" />
+    <Compile Include="Migrations\201604221822239_v3.Designer.cs">
+      <DependentUpon>201604221822239_v3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\BaseRepository.cs" />
@@ -104,6 +112,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604220307302_Initial.resx">
       <DependentUpon>201604220307302_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604221815453_v2.resx">
+      <DependentUpon>201604221815453_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604221822239_v3.resx">
+      <DependentUpon>201604221822239_v3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

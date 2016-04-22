@@ -10,6 +10,10 @@ namespace DCS.Infra.Data.Mapping
             HasKey(t => t.IdTelefone);
 
             Ignore(t => t.ValidationResult);
+
+            HasOptional(t => t.Usuario)
+                .WithMany(u => u.ListaDeTelefones)
+                .HasForeignKey(t => t.UsuarioId);
         }
     }
 }

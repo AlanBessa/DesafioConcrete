@@ -1,11 +1,8 @@
 ﻿using DCS.Application.App.Command.TelefoneCommands;
 using DCS.Application.App.Command.UsuarioCommands;
 using DCS.Domain.Entidades;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DCS.Application.App.Adapters
 {
@@ -14,7 +11,11 @@ namespace DCS.Application.App.Adapters
         public static Usuario ToDomainModel(UsuarioCommand usuarioCommand)
         {
             var telefones = new List<Telefone>();
-            usuarioCommand.ListaDeTelefones.ToList().ForEach(m => telefones.Add(TelefoneAdapter.ToDomainModel(m)));
+
+            if (usuarioCommand.Telefones != null && usuarioCommand.Telefones.Any())
+            {
+                usuarioCommand.Telefones.ToList().ForEach(m => telefones.Add(TelefoneAdapter.ToDomainModel(m)));
+            }
 
             var usuario = new Usuario(
                 usuarioCommand.Nome,
@@ -28,8 +29,14 @@ namespace DCS.Application.App.Adapters
 
         public static UsuarioCommand ToModelDomain(Usuario usuario)
         {
+            if (usuario == null) return null;
+
             var telefones = new List<TelefoneCommand>();
-            usuario.ListaDeTelefones.ToList().ForEach(m => telefones.Add(TelefoneAdapter.ToModelDomain(m)));
+
+            if (usuario.ListaDeTelefones != null && usuario.ListaDeTelefones.Any())
+            {
+                usuario.ListaDeTelefones.ToList().ForEach(m => telefones.Add(TelefoneAdapter.ToModelDomain(m)));
+            }    
 
             var usuarioCommand = new UsuarioCommand(
                 usuario.Nome,
