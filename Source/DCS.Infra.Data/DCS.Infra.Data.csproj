@@ -96,9 +96,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Context\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DCS.Domain.SharedKernel\DCS.Domain.SharedKernel.csproj">
       <Project>{DF412E65-EC27-4A11-A417-C33F80A93367}</Project>

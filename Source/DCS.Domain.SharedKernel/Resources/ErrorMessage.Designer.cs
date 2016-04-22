@@ -124,6 +124,15 @@ namespace DCS.Domain.SharedKernel.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O nome é obrigatório..
+        /// </summary>
+        public static string NomeObrigatorio {
+            get {
+                return ResourceManager.GetString("NomeObrigatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Número é obrigatório..
         /// </summary>
         public static string NumeroObrigatorio {

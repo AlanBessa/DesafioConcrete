@@ -162,4 +162,7 @@
   <data name="EmailJaExiste" xml:space="preserve">
     <value>E-mail já existente.</value>
   </data>
+  <data name="NomeObrigatorio" xml:space="preserve">
+    <value>O nome é obrigatório.</value>
+  </data>
 </root>

@@ -15,6 +15,14 @@ namespace DCS.Domain.Scopes
             );
         }
 
+        public static bool DefinirNomeUsuarioScopeEhValido(this Usuario usuario, string nome)
+        {
+            return AssertionConcern.IsSatisfiedBy
+            (
+                AssertionConcern.AssertNotNullOrEmpty(nome, ErrorMessage.NomeObrigatorio)
+            );
+        }
+
         public static bool AutenticarUsuarioScopeEhValido(this Usuario usuario, string email, string senhaCriptografada)
         {
             return AssertionConcern.IsSatisfiedBy

@@ -29,7 +29,7 @@ namespace DCS.Domain.Entidades
 
         public Usuario(string nome, string email, string senha, IList<Telefone> telefones, Guid? idUsuario)
         {
-            Nome = nome;
+            DefinirNome(nome);
             DefinirEmail(email);
             IdUsuario = idUsuario == null ? Guid.NewGuid() : idUsuario.Value;
             ListaDeTelefones = new List<Telefone>();
@@ -67,6 +67,12 @@ namespace DCS.Domain.Entidades
         #endregion
 
         #region "Métodos"
+
+        private void DefinirNome(string nome)
+        {
+            if (this.DefinirNomeUsuarioScopeEhValido(nome))
+                Nome = nome;
+        }
 
         private void DefinirEmail(string email)
         {
