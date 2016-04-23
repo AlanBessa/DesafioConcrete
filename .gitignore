@@ -12,3 +12,4 @@ Source/DCS.Presetantion.API/bin/
 Source/DCS.Presetantion.API/obj/
 Tests/DCS.Domain.Test/obj/
 packages/
+Source/DCS.Presetantion.API/wwwroot/bower_components/
