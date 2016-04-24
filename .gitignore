@@ -14,3 +14,4 @@ Tests/DCS.Domain.Test/obj/
 packages/
 Source/DCS.Presetantion.API/wwwroot/bower_components/
 Source/DCS.Presetantion.API/wwwroot/node_modules/
+Source/DCS.Presetantion.API/Properties/PublishProfiles/

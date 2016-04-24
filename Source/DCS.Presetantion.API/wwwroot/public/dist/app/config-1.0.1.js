@@ -8,7 +8,7 @@
         'AUTH_USER': 'dcs-user',
         'AUTH_ID': 'dcs-id',
         //'SERVICE_URL': '/'
-        'SERVICE_URL':'http://desafioconcrete.azurewebsites.net'
+        'SERVICE_URL':'http://desafioconcrete.azurewebsites.net/'
     });
 
     angular.module('dcs').run(function ($rootScope, $location, SETTINGS)
