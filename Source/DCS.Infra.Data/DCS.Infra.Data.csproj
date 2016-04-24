@@ -69,17 +69,9 @@
     <Compile Include="Context\DCSContext.cs" />
     <Compile Include="Mapping\TelefoneMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
-    <Compile Include="Migrations\201604220307302_Initial.cs" />
-    <Compile Include="Migrations\201604220307302_Initial.Designer.cs">
-      <DependentUpon>201604220307302_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604221815453_v2.cs" />
-    <Compile Include="Migrations\201604221815453_v2.Designer.cs">
-      <DependentUpon>201604221815453_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604221822239_v3.cs" />
-    <Compile Include="Migrations\201604221822239_v3.Designer.cs">
-      <DependentUpon>201604221822239_v3.cs</DependentUpon>
+    <Compile Include="Migrations\201604232208208_Initial.cs" />
+    <Compile Include="Migrations\201604232208208_Initial.Designer.cs">
+      <DependentUpon>201604232208208_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,7 +88,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604232208208_Initial.resx">
+      <DependentUpon>201604232208208_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCS.Domain.SharedKernel\DCS.Domain.SharedKernel.csproj">
       <Project>{DF412E65-EC27-4A11-A417-C33F80A93367}</Project>
@@ -106,17 +102,6 @@
       <Project>{eee50c15-b694-4b4c-9534-ad056e8ec322}</Project>
       <Name>DCS.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604220307302_Initial.resx">
-      <DependentUpon>201604220307302_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604221815453_v2.resx">
-      <DependentUpon>201604221815453_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604221822239_v3.resx">
-      <DependentUpon>201604221822239_v3.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets')" />

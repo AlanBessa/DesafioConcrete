@@ -40,6 +40,7 @@ namespace DCS.Presetantion.API.Security
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
             identity.AddClaim(new Claim(ClaimTypes.Name, user.Email));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "usuario"));
 
             GenericPrincipal principal = new GenericPrincipal(identity, new string[] { "usuario" });
             Thread.CurrentPrincipal = principal;

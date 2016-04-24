@@ -20,8 +20,18 @@ namespace DCS.Presetantion.API.Controllers
             _usuarioApp = usuarioApp;
         }
 
+        [HttpGet]
+        //[Authorize(Roles = "usuario")]
+        [Route("api/usuario/{id:guid}")]
+        public Task<HttpResponseMessage> Get(Guid id)
+        {
+            var usuario = _usuarioApp.ObterPorId(id);
+
+            return CreateResponse(HttpStatusCode.OK, usuario);
+        }
+
         [HttpPost]
-        [Route("api/users")]
+        [Route("api/usuarios")]
         public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
             var command = new UsuarioCommand(
@@ -34,6 +44,6 @@ namespace DCS.Presetantion.API.Controllers
             var usuario = _usuarioApp.Registrar(command);
 
             return CreateResponse(HttpStatusCode.Created, usuario);
-        }
+        }        
     }
 }

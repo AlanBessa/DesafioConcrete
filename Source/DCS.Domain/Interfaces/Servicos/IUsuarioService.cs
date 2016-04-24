@@ -8,9 +8,13 @@ namespace DCS.Domain.Interfaces.Servicos
     {
         Usuario Adicionar(Usuario usuario);
 
+        Usuario Atualizar(Usuario usuario);
+
         Usuario Autenticar(string email, string senha);
 
         Usuario ObterPorId(Guid id);
+
+        Usuario ObterPorEmail(string email);
 
         IEnumerable<Usuario> ObterTodos();        
     }

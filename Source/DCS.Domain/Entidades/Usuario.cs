@@ -52,9 +52,9 @@ namespace DCS.Domain.Entidades
 
         public DateTime DataDeCriacao { get; private set; }
 
-        public DateTime? DataAtualizacao { get; private set; }
+        public DateTime? DataAtualizacao { get; set; }
 
-        public DateTime? DataDoUltimoLogin { get; private set; }
+        public DateTime? DataDoUltimoLogin { get; set; }
         
         public ICollection<Telefone> ListaDeTelefones
         {

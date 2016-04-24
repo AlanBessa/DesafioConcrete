@@ -189,7 +189,14 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="wwwroot\app\app.js" />
+    <Content Include="wwwroot\app\config.js" />
+    <Content Include="wwwroot\app\controllers\account\login-controller.js" />
+    <Content Include="wwwroot\app\controllers\account\logout-controller.js" />
+    <Content Include="wwwroot\app\controllers\account\usuario-cadastrar-controller.js" />
     <Content Include="wwwroot\app\controllers\home\home-controller.js" />
+    <Content Include="wwwroot\app\controllers\usuario\usuario-controller.js" />
+    <Content Include="wwwroot\app\factories\account-factory.js" />
+    <Content Include="wwwroot\app\factories\usuario-factory.js" />
     <Content Include="wwwroot\app\routes.js" />
     <Content Include="wwwroot\bower_components\angular-route\angular-route.js" />
     <Content Include="wwwroot\bower_components\angular-route\angular-route.min.js" />
@@ -404,11 +411,15 @@
     <Content Include="wwwroot\bower_components\toastr\toastr.min.css" />
     <Content Include="wwwroot\bower_components\toastr\toastr.min.js" />
     <Content Include="wwwroot\public\dev\index.html" />
+    <Content Include="wwwroot\public\dev\pages\account\cadastrar.html" />
     <Content Include="wwwroot\public\dev\pages\account\login.html" />
     <Content Include="wwwroot\public\dev\pages\home\index.html" />
+    <Content Include="wwwroot\public\dev\pages\perfil\editar.html" />
+    <Content Include="wwwroot\public\dev\pages\perfil\index.html" />
     <Content Include="wwwroot\public\dev\pages\shared\headerbar.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -423,9 +434,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\DBConcrete.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Web.Debug.config">

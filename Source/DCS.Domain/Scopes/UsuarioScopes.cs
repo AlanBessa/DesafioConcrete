@@ -30,7 +30,7 @@ namespace DCS.Domain.Scopes
                 AssertionConcern.AssertNotNullOrEmpty(email, ErrorMessage.UsuarioObrigatorio),
                 AssertionConcern.AssertNotNullOrEmpty(senhaCriptografada, ErrorMessage.SenhaObrigatoria),
                 AssertionConcern.AssertAreEquals(usuario.Email.Endereco, email, ErrorMessage.UsuarioSenhaInvalido),
-                AssertionConcern.AssertAreEquals(usuario.Senha, senhaCriptografada, ErrorMessage.UsuarioSenhaInvalido)
+                AssertionConcern.AssertAreEquals(usuario.Senha.Trim(), senhaCriptografada, ErrorMessage.UsuarioSenhaInvalido)
             );
         }
 

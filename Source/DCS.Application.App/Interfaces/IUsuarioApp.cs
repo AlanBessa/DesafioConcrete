@@ -11,7 +11,11 @@ namespace DCS.Application.App.Interfaces
 
         UsuarioCommand Autenticar(string email, string senha);
 
+        void AtualizarDataDoUltimoLoginPorId(Guid id);
+
         UsuarioCommand ObterPorId(Guid id);
+
+        UsuarioCommand ObterUsuarioIdPorEmail(string email);
 
         IEnumerable<UsuarioCommand> ObterTodos();
     }

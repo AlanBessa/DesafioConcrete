@@ -38,12 +38,34 @@ namespace DCS.Application.App
             return UsuarioAdapter.ToModelDomain(usuario);
         }
 
+        public void AtualizarDataDoUltimoLoginPorId(Guid id)
+        {
+            var idGuid = new Guid(id.ToString());
+
+            var usuario = _usuarioService.ObterPorId(idGuid);
+            usuario.DataDoUltimoLogin = DateTime.Now;
+
+            _usuarioService.Atualizar(usuario);
+
+            Commit();
+        }
+
         public UsuarioCommand ObterPorId(Guid id)
         {
             var usuario = _usuarioService.ObterPorId(id);
             usuario.DefinirTelefones(_telefoneService.ObterTelefonesPorUsuario(usuario.IdUsuario).ToList());
 
             return UsuarioAdapter.ToModelDomain(usuario);
+        }
+
+        public UsuarioCommand ObterUsuarioIdPorEmail(string email)
+        {
+            var usuario = _usuarioService.ObterPorEmail(email);
+
+            var usuarioCommand = new UsuarioCommand(usuario.Nome, usuario.Email.Endereco, string.Empty, null);
+            usuarioCommand.IdUsuario = usuario.IdUsuario;
+
+            return usuarioCommand;
         }
 
         public IEnumerable<UsuarioCommand> ObterTodos()

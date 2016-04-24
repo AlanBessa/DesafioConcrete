@@ -39,9 +39,21 @@ namespace DCS.Domain.Servicos
             return usuario;
         }
 
+        public Usuario Atualizar(Usuario usuario)
+        {
+            _usuarioRepository.Atualizar(usuario);
+
+            return usuario;
+        }
+
         public Usuario ObterPorId(Guid id)
         {
             return _usuarioRepository.ObterPorId(id);
+        }
+
+        public Usuario ObterPorEmail(string email)
+        {
+            return _usuarioRepository.ObterPorEmail(email);
         }
 
         public IEnumerable<Usuario> ObterTodos()
