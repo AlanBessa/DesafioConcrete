@@ -24,6 +24,8 @@ namespace DCS.Application.App.Adapters
                 telefones,
                 usuarioCommand.IdUsuario);
 
+            usuario.Token = usuarioCommand.Token;
+
             return usuario;
         }
 
@@ -45,6 +47,7 @@ namespace DCS.Application.App.Adapters
                 telefones);
 
             usuarioCommand.IdUsuario = usuario.IdUsuario;
+            usuarioCommand.Token = usuario.Token;
 
             return usuarioCommand;
         }

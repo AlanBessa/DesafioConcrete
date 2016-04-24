@@ -7,7 +7,7 @@
     function UsuarioFactory($http, $rootScope, SETTINGS) {
         return {
             obterPorId: obterPorId,
-            getByEmail: getByEmail
+            obterUsuarioAutenticadoPorEmail: obterUsuarioAutenticadoPorEmail
         };
 
         function obterPorId(id) {
@@ -16,10 +16,11 @@
             return $http.get(url, $rootScope.header);
         }
 
-        function getByEmail(email) {
-            var url = SETTINGS.SERVICE_URL + 'api/login/usuarios/' + email + "/";
+        function obterUsuarioAutenticadoPorEmail(email) {
+            var data = angular.toJson({ 'email': email, 'token': $rootScope.token });
+            var url = SETTINGS.SERVICE_URL + 'api/login/usuarios/';
 
-            return $http.get(url, $rootScope.header);
+            return $http.post(url, data, $rootScope.header);
         }
     }
 })();

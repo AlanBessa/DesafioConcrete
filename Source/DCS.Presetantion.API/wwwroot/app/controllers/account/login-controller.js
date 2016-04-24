@@ -30,7 +30,7 @@
                 $rootScope.token = response.access_token;
                 sessionStorage.setItem(SETTINGS.AUTH_TOKEN, response.access_token);
 
-                UsuarioFactory.getByEmail(vm.login.email)
+                UsuarioFactory.obterUsuarioAutenticadoPorEmail(vm.login.email)
                     .success(finalSuccess)
                     .catch(fail);                
             }

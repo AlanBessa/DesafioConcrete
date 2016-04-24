@@ -24,6 +24,8 @@ namespace DCS.Application.App.Command.UsuarioCommands
         
         public string Email { get; set; }
 
+        public string Token { get; set; }
+
         public IEnumerable<TelefoneCommand> Telefones { get; set; }
 
         #endregion

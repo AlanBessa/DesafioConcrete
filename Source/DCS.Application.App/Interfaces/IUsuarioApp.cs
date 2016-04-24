@@ -15,7 +15,7 @@ namespace DCS.Application.App.Interfaces
 
         UsuarioCommand ObterPorId(Guid id);
 
-        UsuarioCommand ObterUsuarioIdPorEmail(string email);
+        UsuarioCommand ArmazenarTokenDoUsuarioPorEmail(string email, string token);
 
         IEnumerable<UsuarioCommand> ObterTodos();
     }

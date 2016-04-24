@@ -35,8 +35,15 @@
 
         $rootScope.$on("$routeChangeStart", function (event, next, current)
         {
-            if ($rootScope.user == null) {
-                $location.path('/login');
+            if ($rootScope.user == null)
+            {
+                if (next.templateUrl === "pages/account/cadastrar.html") {
+                    $location.path('/usuario/perfil/cadastrar');
+                }
+                else {
+                    $location.path('/login');
+                }
+                
             }
         });
     });

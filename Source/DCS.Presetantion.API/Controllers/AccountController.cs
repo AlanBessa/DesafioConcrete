@@ -18,11 +18,11 @@ namespace DCS.Presetantion.API.Controllers
             _usuarioApp = usuarioApp;
         }
 
-        [HttpGet]
-        [Route("api/login/usuarios/{email}")]
-        public Task<HttpResponseMessage> Get(string email)
+        [HttpPost]
+        [Route("api/login/usuarios")]
+        public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
-            var usuario = _usuarioApp.ObterUsuarioIdPorEmail(email);
+            var usuario = _usuarioApp.ArmazenarTokenDoUsuarioPorEmail((string)body.email, (string)body.token);
 
             return CreateResponse(HttpStatusCode.OK, usuario);
         }

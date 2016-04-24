@@ -27,6 +27,9 @@ namespace DCS.Presetantion.API.Controllers
         {
             var usuario = _usuarioApp.ObterPorId(id);
 
+            if (usuario == null)
+                return CreateResponse(HttpStatusCode.InternalServerError, usuario);
+
             return CreateResponse(HttpStatusCode.OK, usuario);
         }
 

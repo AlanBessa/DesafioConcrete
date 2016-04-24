@@ -58,14 +58,23 @@ namespace DCS.Application.App
             return UsuarioAdapter.ToModelDomain(usuario);
         }
 
-        public UsuarioCommand ObterUsuarioIdPorEmail(string email)
+        public UsuarioCommand ArmazenarTokenDoUsuarioPorEmail(string email, string token)
         {
             var usuario = _usuarioService.ObterPorEmail(email);
+            usuario.Token = token;
 
-            var usuarioCommand = new UsuarioCommand(usuario.Nome, usuario.Email.Endereco, string.Empty, null);
-            usuarioCommand.IdUsuario = usuario.IdUsuario;
+            _usuarioService.Atualizar(usuario);
 
-            return usuarioCommand;
+            if (Commit())
+            {
+                var usuarioCommand = new UsuarioCommand(usuario.Nome, usuario.Email.Endereco, string.Empty, null);
+                usuarioCommand.IdUsuario = usuario.IdUsuario;
+                usuarioCommand.Token = token;
+
+                return usuarioCommand;
+            }
+
+            return null;
         }
 
         public IEnumerable<UsuarioCommand> ObterTodos()

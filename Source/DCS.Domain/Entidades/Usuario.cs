@@ -35,7 +35,7 @@ namespace DCS.Domain.Entidades
             ListaDeTelefones = new List<Telefone>();
             DataDeCriacao = DateTime.Now;
             DataAtualizacao = null;
-            DataDoUltimoLogin = null;
+            DataDoUltimoLogin = DateTime.Now;
             DefinirSenha(senha);
             DefinirTelefones(telefones);
         }
@@ -55,7 +55,9 @@ namespace DCS.Domain.Entidades
         public DateTime? DataAtualizacao { get; set; }
 
         public DateTime? DataDoUltimoLogin { get; set; }
-        
+
+        public string Token { get; set; }
+
         public ICollection<Telefone> ListaDeTelefones
         {
             get { return _telefones; }

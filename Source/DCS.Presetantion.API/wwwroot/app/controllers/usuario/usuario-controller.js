@@ -2,9 +2,9 @@
     'use strict';
     angular.module('dcs').controller('UsuarioCtrl', UsuarioCtrl);
 
-    UsuarioCtrl.$inject = ['$rootScope', 'UsuarioFactory'];
+    UsuarioCtrl.$inject = ['$rootScope', '$location', 'UsuarioFactory'];
 
-    function UsuarioCtrl($rootScope, UsuarioFactory) {
+    function UsuarioCtrl($rootScope, $location, UsuarioFactory) {
         var vm = this;
         var id = $rootScope.userId;
 
@@ -21,7 +21,15 @@
                 .catch(fail);
 
             function success(response) {
-                vm.usuario = response;
+                if (angular.equals(response.token, $rootScope.token))
+                {
+                    vm.usuario = response;
+                }
+                else
+                {
+                    toastr.error('Você não tem permissão para ver esta página', 'Requisição não autorizada');
+                    $location.path('/');
+                }
             }
 
             function fail(error) {
