@@ -7,7 +7,8 @@
     function UsuarioFactory($http, $rootScope, SETTINGS) {
         return {
             obterPorId: obterPorId,
-            obterUsuarioAutenticadoPorEmail: obterUsuarioAutenticadoPorEmail
+            obterUsuarioAutenticadoPorEmail: obterUsuarioAutenticadoPorEmail,
+            salvarUsuario: salvarUsuario
         };
 
         function obterPorId(id) {
@@ -21,6 +22,12 @@
             var url = SETTINGS.SERVICE_URL + 'api/login/usuarios/';
 
             return $http.post(url, data, $rootScope.header);
+        }
+
+        function salvarUsuario(usuario) {
+            var url = SETTINGS.SERVICE_URL + 'api/usuarios';
+
+            return $http.post(url, usuario, $rootScope.header);
         }
     }
 })();
