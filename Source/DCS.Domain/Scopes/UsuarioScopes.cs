@@ -23,14 +23,14 @@ namespace DCS.Domain.Scopes
             );
         }
 
-        public static bool AutenticarUsuarioScopeEhValido(this Usuario usuario, string email, string senhaCriptografada)
+        public static bool AutenticarUsuarioScopeEhValido(this Usuario usuario, string email, string senha)
         {
             return AssertionConcern.IsSatisfiedBy
             (
                 AssertionConcern.AssertNotNullOrEmpty(email, ErrorMessage.UsuarioObrigatorio),
-                AssertionConcern.AssertNotNullOrEmpty(senhaCriptografada, ErrorMessage.SenhaObrigatoria),
+                AssertionConcern.AssertNotNullOrEmpty(senha, ErrorMessage.SenhaObrigatoria),
                 AssertionConcern.AssertAreEquals(usuario.Email.Endereco, email, ErrorMessage.UsuarioSenhaInvalido),
-                AssertionConcern.AssertAreEquals(usuario.Senha.Trim(), senhaCriptografada, ErrorMessage.UsuarioSenhaInvalido)
+                AssertionConcern.CompararSenhas(senha, usuario.Senha, ErrorMessage.UsuarioSenhaInvalido)
             );
         }
 

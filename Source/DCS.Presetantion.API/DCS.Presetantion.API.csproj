@@ -410,13 +410,33 @@
     <Content Include="wwwroot\bower_components\toastr\toastr.js" />
     <Content Include="wwwroot\bower_components\toastr\toastr.min.css" />
     <Content Include="wwwroot\bower_components\toastr\toastr.min.js" />
+    <Content Include="wwwroot\Gruntfile.js" />
     <Content Include="wwwroot\public\dev\index.html" />
     <Content Include="wwwroot\public\dev\pages\account\cadastrar.html" />
     <Content Include="wwwroot\public\dev\pages\account\login.html" />
     <Content Include="wwwroot\public\dev\pages\home\index.html" />
-    <Content Include="wwwroot\public\dev\pages\perfil\editar.html" />
     <Content Include="wwwroot\public\dev\pages\perfil\index.html" />
     <Content Include="wwwroot\public\dev\pages\shared\headerbar.html" />
+    <Content Include="wwwroot\public\dist\app\app.js" />
+    <Content Include="wwwroot\public\dist\app\config.js" />
+    <Content Include="wwwroot\public\dist\app\controllers\account\login-controller.js" />
+    <Content Include="wwwroot\public\dist\app\controllers\account\logout-controller.js" />
+    <Content Include="wwwroot\public\dist\app\controllers\account\usuario-cadastrar-controller.js" />
+    <Content Include="wwwroot\public\dist\app\controllers\home\home-controller.js" />
+    <Content Include="wwwroot\public\dist\app\controllers\usuario\usuario-controller.js" />
+    <Content Include="wwwroot\public\dist\app\factories\account-factory.js" />
+    <Content Include="wwwroot\public\dist\app\factories\usuario-factory.js" />
+    <Content Include="wwwroot\public\dist\app\routes.js" />
+    <Content Include="wwwroot\public\dist\assets\cssmin\styles-1.0.0.min.css" />
+    <Content Include="wwwroot\public\dist\assets\fonts\4.4.0\index.html" />
+    <Content Include="wwwroot\public\dist\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="wwwroot\public\dist\assets\js\scripts-1.0.0.min.js" />
+    <Content Include="wwwroot\public\dist\index.html" />
+    <Content Include="wwwroot\public\dist\pages\account\cadastrar.html" />
+    <Content Include="wwwroot\public\dist\pages\account\login.html" />
+    <Content Include="wwwroot\public\dist\pages\home\index.html" />
+    <Content Include="wwwroot\public\dist\pages\perfil\index.html" />
+    <Content Include="wwwroot\public\dist\pages\shared\headerbar.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
@@ -681,10 +701,15 @@
     <Content Include="wwwroot\bower_components\angular\bower.json" />
     <Content Include="wwwroot\bower_components\angular\package.json" />
     <Content Include="wwwroot\bower_components\angular\README.md" />
+    <Content Include="wwwroot\package.json" />
+    <Content Include="wwwroot\public\dist\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\public\dist\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\public\dist\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\public\dist\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="wwwroot\public\dist\assets\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\public\dist\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCS.Application.App\DCS.Application.App.csproj">

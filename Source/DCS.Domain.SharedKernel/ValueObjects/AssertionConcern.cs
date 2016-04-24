@@ -1,4 +1,5 @@
 ﻿using DCS.Domain.SharedKernel.Events;
+using DCS.Domain.SharedKernel.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -67,6 +68,12 @@ namespace DCS.Domain.SharedKernel.ValueObjects
         {
             return (!(value == match)) ?
                 new DomainNotification("AssertArgumentTrue", message) : null;
+        }
+
+        public static DomainNotification CompararSenhas(string value, string match, string message)
+        {
+            return (!StringHelper.CompararSenhas(value, match)) ?
+                new DomainNotification("CompararSenhas", message) : null;
         }
     }
 }

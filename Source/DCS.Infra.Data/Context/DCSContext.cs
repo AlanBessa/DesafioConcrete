@@ -21,13 +21,19 @@ namespace DCS.Infra.Data.Context
             // Database does not pluralize table names
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            // ModelConfiguration
-            modelBuilder.Configurations.Add(new UsuarioMap());
-            modelBuilder.Configurations.Add(new TelefoneMap());
+            // ModelConfiguration           
 
             modelBuilder.Properties()
                .Where(p => p.Name == "Id" + p.ReflectedType.Name)
                .Configure(p => p.IsKey());
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new TelefoneMap());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

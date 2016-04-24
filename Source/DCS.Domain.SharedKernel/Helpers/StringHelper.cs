@@ -1,23 +1,22 @@
-﻿using System.Security.Cryptography;
-using System.Text;
+﻿using CryptSharp;
 
 namespace DCS.Domain.SharedKernel.Helpers
 {
     public class StringHelper
     {
-        public static string Criptografar(string valor)
+        public static string Criptografar(string senha)
         {
-            if (string.IsNullOrEmpty(valor))
-                return "";
+            if (string.IsNullOrEmpty(senha))
+                return string.Empty;
 
-            valor += "|54be1d80-b6d0-45c0-b8d7-13b3c798729f";
-            MD5 md5 = MD5.Create();
-            byte[] data = md5.ComputeHash(Encoding.Default.GetBytes(valor));
-            StringBuilder sbString = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
-                sbString.Append(data[i].ToString("x2"));
-            return sbString.ToString();
+            return Crypter.Blowfish.Crypt(senha);
         }
+
+        public static bool CompararSenhas(string senha, string hash)
+        {
+            return Crypter.CheckPassword(senha, hash);
+        }
+
 
         public static string RemoverCaracterEspecial(string texto)
         {

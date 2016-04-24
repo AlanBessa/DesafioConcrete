@@ -34,7 +34,7 @@ namespace DCS.Domain.Servicos
 
             if (usuario == null) return null;
             
-            if(!usuario.Autenticar(email, StringHelper.Criptografar(senha))) return null;
+            if(!usuario.Autenticar(email, senha)) return null;
 
             return usuario;
         }

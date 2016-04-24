@@ -98,9 +98,9 @@ namespace DCS.Domain.Entidades
             telefones.ToList().ForEach(x => AdicionarTelefone(x));
         }
 
-        public bool Autenticar(string email, string senhaCriptografada)
+        public bool Autenticar(string email, string senha)
         {
-            if (this.AutenticarUsuarioScopeEhValido(email, senhaCriptografada))
+            if (this.AutenticarUsuarioScopeEhValido(email, senha))
                 return true;
 
             return false;

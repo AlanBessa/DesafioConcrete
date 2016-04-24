@@ -16,11 +16,10 @@ namespace DCS.Infra.Data.Mapping
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity); ;
 
             Property(u => u.Senha)
-                .HasMaxLength(36)
-                .IsFixedLength()
                 .IsRequired();
 
             Property(u => u.Nome)
+                .HasMaxLength(150)
                 .IsRequired();
 
             Property(u => u.DataDeCriacao)
